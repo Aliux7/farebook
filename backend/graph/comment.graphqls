@@ -1,0 +1,25 @@
+type Comment {
+  id: ID!
+	postID: String!
+	userID: String!
+  userName: String!
+  content: String!
+  createDate: String!
+}
+
+input NewComment {
+	postID: String!
+	userID: String!
+  userName: String!
+  content: String!
+  createDate: String!
+}
+
+extend type Query {
+  getAllCommentByPost(id: ID!): [Comment!]!
+  countAllCommentByPost(id: ID!): Int!
+}
+
+extend type Mutation {
+  createComment(inputComment: NewComment!): Comment!
+}

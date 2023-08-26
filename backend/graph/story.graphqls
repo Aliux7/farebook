@@ -1,0 +1,39 @@
+type Story {
+  id: ID!
+  userID: String!
+  userName: String!
+  dateStory: String!
+  imageStory: Boolean!
+  textStory: String!
+  fontStory: String!
+  backgroundStory: String!
+  privacy: String!
+}
+
+type UserDistinct {
+  userID: String!
+  userName: String!
+}
+
+input NewStory {
+  userID: String!
+  userName: String!
+  dateStory: String!
+  imageStory: Boolean!
+  textStory: String!
+  fontStory: String!
+  backgroundStory: String!
+  privacy: String!
+}
+
+
+extend type Query {
+  getStory(id: ID!): Story!
+  getAllStory(user_id: String!): [Story!]!
+  getUserStoryDistinct: [UserDistinct!]!
+}
+
+extend type Mutation {
+  createStory(inputStory: NewStory!): Story!
+  deleteStory(id: ID!): Story!
+}

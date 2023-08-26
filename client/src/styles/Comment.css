@@ -1,0 +1,113 @@
+.commentSection {
+    display: flex;
+    flex-direction: column;
+} 
+  
+.titleComment {
+    text-align: center;
+    margin: 20px;
+    background-color: var(--header_background);
+    z-index: 1;
+}
+  
+.commentList {
+    flex: 1;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.commentContainer {
+    display: flex;
+    padding: 10px;
+    background-color: var(--header_background);
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 10px;
+    top: 0%;
+    min-width: 500px;
+}
+
+.commentReplayContainer {
+    display: flex;
+    padding: 10px;
+    background-color: var(--header_background);
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 10px;
+    top: 0%;
+    min-width: 300px;
+}
+  
+.profileImage {
+    width: 41px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.commentContent {
+    width: max-content;
+    background-color: var(--chat_background);
+    padding: 15px 15px;
+    border-radius: 20px;
+}
+  
+.userName {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--body_color);
+    font-weight: 550;
+    margin-bottom: 2px;
+}
+  
+.content {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--body_color);
+}
+  
+.timeAgo {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #9fa2a6;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+  
+.createCommentContainer {
+    position: relative;
+    background-color: var(--header_background);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 0px 0px 5px 5px;
+    position: sticky;
+    bottom: 0;
+}
+
+.createReplayCommentContainer {
+    position: relative;
+    background-color: var(--header_background);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 0px 0px 5px 5px;
+    position: sticky;
+    bottom: 0;
+}
+
+.createCommentContainer input{
+    min-height: 45px;
+    min-width: 500px;
+    background-color: var(--input_background);
+    border: 0;
+    border-radius: 10px;
+    padding: 0px 0px 0px 15px;
+}
+
+.createReplayCommentContainer input{
+    min-height: 45px;
+    min-width: 300px;
+    background-color: var(--input_background);
+    border: 0;
+    border-radius: 10px;
+    padding: 0px 0px 0px 15px;
+}

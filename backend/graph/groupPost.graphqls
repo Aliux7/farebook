@@ -1,0 +1,32 @@
+type GroupPost {
+  id: ID!
+  groupID: String!
+  groupName: String!
+  userID: String!
+  userName: String!
+  datePost: String!
+  textPost: String!
+  privacy: String!
+}
+
+input NewGroupPost {
+  groupID: String!
+  groupName: String!
+  userID: String!
+  userName: String!
+  datePost: String!
+  textPost: String!
+  privacy: String!
+}
+
+
+extend type Query {
+  getGroupPost(id: ID!): GroupPost!
+  getAllGroupPost(id: ID!, offset: Int, limit: Int): [GroupPost!]!
+  searchAllGroupPost(search: String!, offset: Int, limit: Int): [GroupPost!]!
+}
+
+extend type Mutation {
+  createGroupPost(inputGroupPost: NewGroupPost!): GroupPost!
+  deleteGroupPost(id: ID!): GroupPost!
+}

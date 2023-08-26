@@ -1,0 +1,42 @@
+type GroupChat {
+  id: ID!
+  CreatedAt: String! 
+}
+
+type GroupChatMember {
+  id: ID!
+  ChatID: String!
+  UserID: String!
+  CreatedAt: String!
+}
+
+type GroupChatMessage {
+  	id: ID!
+	ChatID: String!
+	Sender: String!
+	Content: String!
+	Timestamp: String!
+}
+
+input NewGroupChatMember {
+	ChatID: String!
+	UserID: String!
+}
+
+input NewGroupChatMessage {
+	ChatID: String!
+	Sender: String!
+	Content: String!
+}
+
+
+extend type Query {
+	getAllGroupMessageByChatID(ChatID: String!): [GroupChatMessage!]
+	getAllGroupChatByUserID(UserID: String!): [GroupChatMember!]
+}
+
+extend type Mutation {
+  createGroupChat: GroupChat!
+  createGroupChatMember(inputGroupChatMember: NewGroupChatMember!): GroupChatMember!
+  createGroupChatMessage(inputGroupChatMessage: NewGroupChatMessage!): GroupChatMessage!
+}

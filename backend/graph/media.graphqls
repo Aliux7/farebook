@@ -1,0 +1,18 @@
+type Media {
+  id: ID!
+	postID: String!
+	mediaURL: String!
+}
+
+input NewMedia {
+	postID: String!
+	mediaURL: String!
+}
+
+extend type Query {
+  getAllMediaByPost(id: ID!): [Media!]! 
+}
+
+extend type Mutation {
+  createMedia(inputMedia: NewMedia!): Media!
+}

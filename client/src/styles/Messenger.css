@@ -1,0 +1,63 @@
+.search-dropdown {
+    position: relative;
+    width: 29vw;
+}
+  
+.search-input {
+    position: relative;
+    margin-top: 10px;
+}
+
+.search-input input {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--input_background);
+    border: 1px solid  var(--input_background);
+    border-radius: 4px;
+    height: 35px;
+    border-radius:3px;
+    padding: 0px 0px 0px 35px;
+}
+  
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 30vh;
+    overflow-y: scroll;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+  
+.selected-options-list{
+    list-style: none;
+    overflow-y: scroll;
+}
+
+.options-list li {
+    padding: 8px;
+    cursor: pointer;
+    background-color: var(--input_background);
+}
+  
+.options-list li:hover {
+    background-color: #f0f0f0;
+}
+ 
+
+.responsive-chat-conversation{
+    width: 75vw;
+}
+
+@media only screen and (max-width: 670px) {
+    .responsive-chat-sidebar{
+        display: none;
+    }
+    .responsive-chat-conversation{
+        width: 100vw;
+    }
+}

@@ -1,0 +1,70 @@
+.notification-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: var(--header_background);
+}
+  
+.filter-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+  
+.filter-option {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-option.active {
+    color: #3c91ff;
+}
+
+.filter-option:hover {
+    background-color: var(--hover_background);
+}
+  
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+.notification-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.createDate{ 
+    margin: 0;
+    font-size: 0.8rem;
+    color: #9fa2a6;
+    margin-top: 2px;
+}
+
+
+.notification-item > div > img {
+    width: 45px; height:45px;
+}
+
+@media only screen and (max-width: 670px) {
+    .notification-container {
+        width: 50vw;
+    }
+    .notification-item > div > img {
+        width: 7vw;
+        height: 7vw;
+    }
+    .notification-container,.filter-options,.notification-item, .createDate{
+        font-size: 2.3vw;
+    }
+}

@@ -1,0 +1,25 @@
+type Like {
+  id: ID!
+	postID: String!
+	userID: String!
+  userName: String!
+  createDate: String!
+}
+
+input NewLike {
+	postID: String!
+	userID: String!
+  userName: String!
+  createDate: String!
+}
+
+extend type Query {
+  getAllLikeByPost(id: ID!): [Like!]!
+  countAllLikeByPost(id: ID!): Int!
+  checkLikeByPost(postID: String!, userID: String!): Boolean!
+}
+
+extend type Mutation {
+  createLike(inputLike: NewLike!): Like!
+  deleteLike(postID: String!, userID: String!): Like!
+}

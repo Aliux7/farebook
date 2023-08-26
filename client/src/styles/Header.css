@@ -1,0 +1,82 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Higher than other content */
+  }
+  
+.createPostContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--header_background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+}
+
+.createPostContainer select {
+    border: none;
+    padding: 6px 5px 6px 5px;
+    background-color: var(--select_background);
+    border-radius: 5px;
+}
+
+.createPostContainer input{
+    padding: 17px 20px 17px 20px;
+    width: 100%;
+    background-color: var(--header_background);
+    border: 1px solid rgba(255, 255, 255, 0.158);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: 0.5s;
+    outline: none;
+}
+
+.customFileInput {
+    display: inline-block;
+    padding: 12px 200px 12px 20px;
+    background-color: var(--header_background);
+    border: 1px solid rgba(255, 255, 255, 0.158);
+    color: var(--body_color);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+}
+
+.customFileInput.fileSelected {
+    background-color: var(--select_background);
+}
+
+.inputRichText{
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+.notificationCount{
+    position: absolute;
+    right: 0%;
+    top: -10%;
+    background-color: red;
+    border-radius: 50%;
+    padding: 1px 6px;
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 600px) {
+    .createPostContainer{
+        width: 350px;
+    }
+    .customFileInput {
+        margin-top: 20px;
+    }
+}

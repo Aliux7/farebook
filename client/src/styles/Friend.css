@@ -1,0 +1,71 @@
+.friend-content{
+    /* position: absolute; */
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    top: 13vh;
+    left: 27vw;
+    flex-wrap: wrap;
+}
+
+.friend-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 10px 0;
+    background-color: var(--header_background);
+    width: 210px;
+    height: 360px;
+    margin: 10px 5px;
+}
+  
+.friend-picture {
+    border-radius: 8px 8px 0px 0px;
+    width: 210;
+    height: 210px;
+    margin: 0px;
+}
+  
+.friend-info {
+    flex-grow: 1;
+}
+  
+.friend-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+  
+.friend-button{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friend-button .friend-confirm{
+    background-color: #3c91ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--body_color);
+    width: 90%;
+    height: 37px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: medium;
+    font-weight: bold;
+}
+  
+.friend-button .friend-delete{
+    background-color: var(--hover_background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--body_color);
+    width: 90%;
+    height: 37px;
+    border-radius: 10px;
+    font-size: medium;
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+type LikeComment {
+  id: ID!
+	commentID: String!
+	userID: String!
+  userName: String!
+  createDate: String!
+}
+
+input NewLikeComment {
+	commentID: String!
+	userID: String!
+  userName: String!
+  createDate: String!
+}
+
+extend type Query {
+  countAllLikeCommentByComment(id: ID!): Int!
+  checkLikeCommentByComment(commentID: String!, userID: String!): Boolean!
+}
+
+extend type Mutation {
+  createLikeComment(inputCommentLike: NewLikeComment!): LikeComment!
+  deleteLikeComment(commentID: String!, userID: String!): LikeComment!
+}

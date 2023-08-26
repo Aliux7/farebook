@@ -1,0 +1,39 @@
+.video-upload-button {
+    display: inline-block;
+    font-size: 1em;
+    padding: 100px 8vw;
+    border: 1px solid #616161;
+    cursor: pointer;
+    margin: 20px 10px;
+}
+  
+.video-upload-button input {
+    display: none;
+}
+  
+.button-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+  
+.button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+  
+.cancel {
+    background-color: var(--scroll_color);
+    color: var(--body_color);
+}
+  
+.next,
+.publish {
+    background-color: #1b7dfd;
+    color: white;
+}

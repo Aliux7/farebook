@@ -1,0 +1,41 @@
+type Chat {
+  id: ID!
+  userID1: String!
+  userID2: String!
+  createdAt: String!
+}
+
+input NewChat {
+  userID1: String!
+  userID2: String!
+}
+
+type Message {
+  id: ID!
+	chatID: String!
+  content: String!
+  sender: String!
+  timestamp: String!
+}
+
+input NewMessage {
+	chatID: String!
+  content: String!
+  sender: String!
+}
+
+extend type Query {
+  getAllMessageByChat(id: ID): [Message!]!
+  getChoosenChat(userID1: String, userID2: String): String
+  getAllUserChat(userID: String!): [String!]
+  getConversationMessageByChat(userID1: String, userID2: String): [Message!]!
+}
+
+extend type Subscription {
+  newMessage: [Message!]!
+}
+
+extend type Mutation {
+  createChat(inputChat: NewChat): Chat!
+  createMessage(inputMessage: NewMessage!): Message!
+}

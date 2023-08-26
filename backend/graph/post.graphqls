@@ -1,0 +1,28 @@
+type Post {
+  id: ID!
+  userID: String!
+  userName: String!
+  datePost: String!
+  textPost: String!
+  privacy: String!
+}
+
+input NewPost {
+  userID: String!
+  userName: String!
+  datePost: String!
+  textPost: String!
+  privacy: String!
+}
+
+
+extend type Query {
+  getPost(id: ID!): Post!
+  getAllPost(id: ID!, offset: Int, limit: Int): [Post!]!
+  searchAllPost(search: String!, offset: Int, limit: Int): [Post!]!
+}
+
+extend type Mutation {
+  createPost(inputPost: NewPost!): Post!
+  deletePost(id: ID!): Post!
+}

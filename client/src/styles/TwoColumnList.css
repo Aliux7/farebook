@@ -1,0 +1,23 @@
+.two-column-list-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .left-column, .right-column {
+    flex-basis: 48%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    cursor: pointer; 
+  }
+  
+  .right-column ul, .left-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .right-column li, .left-column li {
+    margin: 10px 0;
+    padding: 5px;
+  }
+  

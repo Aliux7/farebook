@@ -1,0 +1,133 @@
+.search-container{
+    margin-top: 100px;
+}
+
+.search-container .sidebar{
+    padding: 80px 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 15px 0px;
+}
+
+.sidebar ul li{
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover{
+    background-color: var(--hover_background);
+}
+
+.section {
+    background-color: var(--header_background);
+    padding: 30px 30px;
+    padding-bottom: 10px;
+    margin: 20px 0px 0px 350px;
+    width: 620px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1),
+              5px 5px 15px rgba(0, 0, 0, 0.35),
+              inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+              inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+  
+.section h2 {
+    margin-bottom: 10px;
+}
+  
+.group-item,
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+  
+.group-item img,
+.user-item img {
+    width: 51px;
+    height: 50px;
+    border-radius: 20%;
+    margin-right: 20px;
+}
+  
+.group-item .item-details {
+    display: flex;
+    flex-direction: column; /* Stack text in a column */
+}
+  
+.group-item h3 {
+    margin: 0;
+}
+  
+.group-item p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #9fa2a6;
+    margin-top: 2px;
+}
+
+.user-item{
+    justify-content: center;
+    justify-content: space-between; /* Align items flex-start and end */
+}
+
+.user-item button {
+  width: 120px;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 33%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow:   5px 5px 15px rgba(255, 255, 255, 0.1),
+                5px 5px 15px rgba(0, 0, 0, 0.35),
+                inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+                inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+  
+.no-data {
+    color: #999;
+    font-style: italic;
+}
+
+.search-post-container{
+    margin-left: 350px;
+}
+  
+@media only screen and (max-width: 1000px) {
+    .search-container .sidebar {
+        display: none;
+    }
+    
+    .search-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-post-container{
+        margin: 0px;
+    }
+    
+    .section{
+        margin: 20px 0px 0px 0px;
+    }
+
+}
+
+@media only screen and (max-width: 750px) {
+    
+    .section{
+        width: 83vw;
+    }
+
+}

@@ -1,0 +1,75 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 23.5%;
+  height: 100%;
+  background-color: var(--header_background);
+  color: white;
+  z-index: 99;
+  transition: left 0.3s;
+}
+  
+.closeButton {
+  position: absolute;
+  border-radius: 50%;
+  top: 10px;
+  left: 17px;
+  background-color: var(--body_background);
+  color: var(--body_color);
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 7px 12px;
+}
+  
+.content {
+  padding: 20px;
+}
+  
+textarea, select, .toggleBackground {
+  resize: none;
+  font-size: large;
+  margin-left: 20px;
+  min-height: 145px;
+  width: 88%;
+  background-color: var(--header_background);
+  border: 1px solid var(--scroll_color);
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+}
+
+select, .toggleBackground{
+  margin-top: 10px;
+  min-height: 45px;
+  padding: 0px 10px 0px 10px;
+}
+
+.toggleBackground{
+  min-height: 145px;
+}
+  
+.button {
+  width: 40%;
+  padding: 3%;
+  margin: 7%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cancel{
+  margin-right: 8px;
+  background-color: grey;
+}
+
+.share{
+  margin-left: 8px;
+}
+
+@media only screen and (max-width: 940px) {
+  
+}

@@ -1,0 +1,12 @@
+.cardStory:hover{
+    cursor: pointer;
+}
+
+.cardStory:hover{
+  transform: scale(1.05); 
+  transition: transform 0.3s ease;
+}
+
+.userStory:hover{
+  background-color: var(--hover_background);
+}

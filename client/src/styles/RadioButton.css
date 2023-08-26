@@ -1,0 +1,23 @@
+input[type="radio"]{
+    display:none;
+}
+
+input[type="radio"] + label
+{
+    background: #999;
+    height: 25px;
+    width: 25px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked + label
+{
+    border: 3px solid rgb(3, 49, 255);
+    height: 25px;
+    width: 25px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    border-radius: 50%;
+}

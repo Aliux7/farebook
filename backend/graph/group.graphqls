@@ -1,0 +1,24 @@
+type Group {
+  id: ID!
+	Name: String!
+	Privacy: String!
+	CreateDate: String!
+}
+
+input NewGroup {
+	Name: String!
+	Privacy: String!
+	CreateDate: String!
+}
+
+
+extend type Query {
+  searchAllGroup(search: String!): [Group!]!
+  getGroupByID(id: String!): Group!
+  getJoinedGroups(userID: String!): [Group!]!
+}
+
+extend type Mutation {
+  createGroup(inputGroup: NewGroup!): Group!
+  deleteGroup(id: ID!): Group!
+}

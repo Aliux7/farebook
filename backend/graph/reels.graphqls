@@ -1,0 +1,31 @@
+type Reels {
+  id: ID!
+  userID: String!
+  userName: String!
+  dateReels: String!
+  textReels: String!
+  videoURL: String!
+  privacy: String!
+}
+
+input NewReels {
+  userID: String!
+  userName: String!
+  dateReels: String!
+  textReels: String!
+  videoURL: String!
+  privacy: String!
+}
+
+
+extend type Query {
+  getReels(id: ID!): Reels!
+  getAllReels: [Reels!]!
+  getAllReelsByUserID(userID: ID!): [Reels!]!
+  searchAllReels(search: String!, offset: Int, limit: Int): [Reels!]!
+}
+
+extend type Mutation {
+  createReels(inputReels: NewReels!): Reels!
+  deleteReels(id: ID!): Reels!
+}

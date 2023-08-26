@@ -1,0 +1,37 @@
+type GroupMember {
+	id: ID!
+	GroupID: String!
+	UserID: String!
+	Role: String!
+}
+
+input NewGroupMember {
+	GroupID: String!
+	UserID: String!
+	Role: String!
+}
+
+type PendingGroupMember {
+	id: ID!
+	GroupID: String!
+	UserID: String!
+}
+
+input NewPendingGroupMember {
+	GroupID: String!
+	UserID: String!
+}
+
+extend type Query{
+	getAllMemberByGroupID(GroupID: String!): [GroupMember!]!
+	getAllPendingByUserID(UserID: String!): [PendingGroupMember!]!
+}
+
+extend type Mutation {
+  createGroupMember(inputGroupMember: NewGroupMember!): GroupMember!
+  deleteGroupMember(id: ID!): GroupMember!
+  updateRoleMember(groupID: String!, userID: String!, role: String!): GroupMember!	
+
+  createPendingMember(inputPendingMember: NewPendingGroupMember!): PendingGroupMember!
+  deletePendingMember(id: ID!): PendingGroupMember!
+}

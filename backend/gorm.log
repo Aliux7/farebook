@@ -1,0 +1,1398 @@
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[177.543ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[0.609ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[36.849ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'users'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[3.938ms] [34;1m[rows:-][0m SELECT * FROM "users" LIMIT 1
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[20.474ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[13.204ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[2.123ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'users'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[3.288ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[2.114ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'profile_picture') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[2.842ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'first_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[2.699ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'sur_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[2.523ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[2.573ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[0.403ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'dob') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[0.504ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'gender') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:50
+[0m[33m[0.308ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'activate') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.503ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.643ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[6.904ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'posts'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[2.607ms] [34;1m[rows:-][0m SELECT * FROM "posts" LIMIT 1
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[13.974ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'posts' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[15.263ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'posts'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.505ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'posts'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.512ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.538ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.531ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND column_name = 'date_post') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND column_name = 'text_post') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:51
+[0m[33m[0.504ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'posts' AND column_name = 'privacy') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'notifications' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[7.045ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'notifications'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[2.117ms] [34;1m[rows:-][0m SELECT * FROM "notifications" LIMIT 1
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[10.339ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'notifications' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[9.730ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'notifications'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.959ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'notifications'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'notifications' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'notifications' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.552ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'notifications' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'notifications' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'notifications' AND column_name = 'content') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'notifications' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'notifications' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'notifications' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:52
+[0m[33m[0.246ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'notifications' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'notifications' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.808ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'likes' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.503ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[6.540ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'likes'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[1.511ms] [34;1m[rows:-][0m SELECT * FROM "likes" LIMIT 1
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[14.045ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'likes' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[11.486ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'likes'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.506ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'likes'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'likes' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'likes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'likes' AND column_name = 'post_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'likes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'likes' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'likes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'likes' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'likes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:53
+[0m[33m[0.515ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'likes' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'likes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[1.025ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.504ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[6.614ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'comments'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[2.576ms] [34;1m[rows:-][0m SELECT * FROM "comments" LIMIT 1
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[11.306ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'comments' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[9.715ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'comments'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.809ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'comments'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'post_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.571ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'content') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:54
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[1.190ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:42 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[6.457ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'media'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[1.526ms] [34;1m[rows:-][0m SELECT * FROM "media" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[11.155ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'media' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[9.621ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'media'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'media'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'media' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[0.553ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'media' AND column_name = 'post_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:55
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'media' AND column_name = 'media_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.506ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[1.510ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[1.514ms] [34;1m[rows:-][0m SELECT * FROM "like_comments" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[3.308ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'like_comments' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[22.512ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'like_comments'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.997ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'like_comments'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.507ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'like_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.513ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments' AND column_name = 'comment_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'like_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'like_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.619ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'like_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:56
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'like_comments' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'like_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[2.050ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[5.031ms] [34;1m[rows:-][0m SELECT * FROM "replay_comments" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[4.511ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'replay_comments' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[4.024ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'replay_comments'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'replay_comments'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'replay_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.217ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND column_name = 'comment_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'replay_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'replay_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'replay_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND column_name = 'content') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'replay_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:57
+[0m[33m[0.189ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'replay_comments' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'replay_comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.120ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[1.012ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'stories'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[1.512ms] [34;1m[rows:-][0m SELECT * FROM "stories" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[2.753ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'stories' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[2.550ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'stories'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'stories'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.518ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.431ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.133ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'date_story') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'image_story') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'text_story') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.554ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'font_story') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'background_story') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:58
+[0m[33m[1.039ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stories' AND column_name = 'privacy') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.118ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'groups' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.504ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[1.570ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'groups'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[2.154ms] [34;1m[rows:-][0m SELECT * FROM "groups" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[2.886ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'groups' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[2.622ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'groups'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'groups'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'groups' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'groups' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'groups' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'groups' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'groups' AND column_name = 'privacy') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'groups' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:59
+[0m[33m[0.163ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'groups' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'groups' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_members' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.505ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'group_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[2.000ms] [34;1m[rows:-][0m SELECT * FROM "group_members" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[2.389ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_members' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[2.062ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[1.171ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'group_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.504ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_members' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_members' AND column_name = 'group_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_members' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:60
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_members' AND column_name = 'role') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.514ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'pending_group_members' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.503ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'pending_group_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[1.897ms] [34;1m[rows:-][0m SELECT * FROM "pending_group_members" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[2.664ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'pending_group_members' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[2.075ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'pending_group_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.551ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'pending_group_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.521ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'pending_group_members' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'pending_group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'pending_group_members' AND column_name = 'group_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'pending_group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:61
+[0m[33m[0.555ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'pending_group_members' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'pending_group_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.522ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[1.629ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[1.559ms] [34;1m[rows:-][0m SELECT * FROM "group_posts" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[3.617ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_posts' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[2.864ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_posts'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'group_posts'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.539ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'group_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.519ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'group_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'date_post') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.547ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'text_post') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:62
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_posts' AND column_name = 'privacy') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_posts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[1.550ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'reels'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[2.014ms] [34;1m[rows:-][0m SELECT * FROM "reels" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[3.508ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'reels' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[3.078ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'reels'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'reels'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.507ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.203ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'user_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'date_reels') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.511ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'text_reels') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'video_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:63
+[0m[33m[0.517ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'reels' AND column_name = 'privacy') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'reels' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'friends' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[1.602ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'friends'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[1.512ms] [34;1m[rows:-][0m SELECT * FROM "friends" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[2.541ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'friends' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[3.193ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'friends'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'friends'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.504ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'friends' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'friends' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.523ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'friends' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'friends' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'friends' AND column_name = 'friend_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'friends' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.522ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'friends' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'friends' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:64
+[0m[33m[0.519ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'friends' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'friends' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'messages' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.519ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[1.035ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'messages'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[2.098ms] [34;1m[rows:-][0m SELECT * FROM "messages" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[2.679ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'messages' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[2.623ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'messages'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'messages'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.522ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'messages' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.522ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'messages' AND column_name = 'chat_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.524ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'messages' AND column_name = 'sender') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'messages' AND column_name = 'content') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:65
+[0m[33m[0.094ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'messages' AND column_name = 'timestamp') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.504ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'chats' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[1.108ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'chats'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[1.746ms] [34;1m[rows:-][0m SELECT * FROM "chats" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[2.165ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'chats' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[2.692ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'chats'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.551ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'chats'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'chats' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'chats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'chats' AND column_name = 'user_id1') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'chats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.551ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'chats' AND column_name = 'user_id2') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'chats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:66
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'chats' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'chats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[0.506ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chats' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[1.043ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'group_chats'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[1.624ms] [34;1m[rows:-][0m SELECT * FROM "group_chats" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[2.054ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_chats' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[2.559ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_chats'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'group_chats'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[0.526ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chats' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:67
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chats' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_members' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[1.044ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[2.039ms] [34;1m[rows:-][0m SELECT * FROM "group_chat_members" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[2.320ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_chat_members' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[3.250ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_chat_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'group_chat_members'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_members' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_members' AND column_name = 'chat_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.506ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_members' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:68
+[0m[33m[0.184ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_members' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_members' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.115ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.676ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[1.524ms] [34;1m[rows:-][0m SELECT * FROM "group_chat_messages" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[2.014ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_chat_messages' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[2.356ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_chat_messages'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'group_chat_messages'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.503ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages' AND column_name = 'chat_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages' AND column_name = 'sender') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.176ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages' AND column_name = 'content') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:69
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_chat_messages' AND column_name = 'timestamp') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_chat_messages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND table_type = 'BASE TABLE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[1.018ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'training' AND table_schema = CURRENT_SCHEMA() AND table_name = 'group_files'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[2.179ms] [34;1m[rows:-][0m SELECT * FROM "group_files" LIMIT 1
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[3.860ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_files' AND constraint_type = 'UNIQUE'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[4.850ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'training' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'group_files'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.000ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'group_files'
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.519ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.517ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'group_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.517ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'file_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.510ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'type') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'media_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:43 [32mD:/Aslab/WEB-KS-231/backend/server.go:70
+[0m[33m[0.519ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'group_files' AND column_name = 'create_date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'group_files' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2023/08/26 15:34:45 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[115.833ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:34:47 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[113.516ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:34:48 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[106.031ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:34:53 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[109.436ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:34:55 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[109.740ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:35:07 [32mD:/Aslab/WEB-KS-231/backend/service/user.go:52
+[0m[33m[102.433ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE email = 'kelsonsusilo@gmail.com' LIMIT 1
+
+2023/08/26 15:35:14 [32mD:/Aslab/WEB-KS-231/backend/service/user.go:52
+[0m[33m[113.333ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE email = 'kelsonsusilo@gmail.com' LIMIT 1
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[118.452ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[142.223ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[5.505ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[3.021ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[126.442ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:35:15 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[6.086ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'unread'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[0.518ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[1.538ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[1.518ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.626ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.188ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[1.319ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:35:16 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74
+[0m[33m[1.157ms] [34;1m[rows:1][0m SELECT * FROM "likes" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:16 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:16 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.505ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:86
+[0m[33m[65.900ms] [34;1m[rows:7][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62'
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/reels.resolvers.go:56
+[0m[33m[68.300ms] [34;1m[rows:2][0m SELECT * FROM "reels" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62'
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[65.367ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[114.846ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:76
+[0m[33m[113.917ms] [34;1m[rows:7][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'approved'
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:98
+[0m[33m[108.059ms] [34;1m[rows:21][0m SELECT * FROM "friends" WHERE user_id IN ('f1c39c73-3d0d-477e-9d3e-440c3c9c5455','e29ea7c3-f1d7-4d5a-ba41-e987e88bff30','53e74b65-1e2e-4978-9258-78e54920d09f','d39b8e72-76c4-4af1-a0b2-c77fd143ee37','9135e56b-a321-4366-8956-036388258842','312fcd9d-c821-46b2-adab-1707e6c77b54','f767afc9-9fd7-4dc1-8452-c0cfe7f16ff0')
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:112
+[0m[33m[1.509ms] [34;1m[rows:0][0m SELECT * FROM "users" WHERE id IN (NULL)
+
+2023/08/26 15:35:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[101.886ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'f1c39c73-3d0d-477e-9d3e-440c3c9c5455' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:18 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[1.020ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e29ea7c3-f1d7-4d5a-ba41-e987e88bff30' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:18 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '53e74b65-1e2e-4978-9258-78e54920d09f' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:18 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'd39b8e72-76c4-4af1-a0b2-c77fd143ee37' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:18 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.391ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '9135e56b-a321-4366-8956-036388258842' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:18 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '312fcd9d-c821-46b2-adab-1707e6c77b54' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:18 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[1.014ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'f767afc9-9fd7-4dc1-8452-c0cfe7f16ff0' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:19 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[115.957ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:35:19 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[0.997ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:35:26 [32mD:/Aslab/WEB-KS-231/backend/service/user.go:52
+[0m[33m[101.527ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE email = 'kelsonsusilo@gmail.com' LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.510ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.506ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[2.514ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[3.508ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[0.182ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'unread'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[0.504ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[1.683ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[4.630ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[4.568ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.941ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74
+[0m[33m[2.506ms] [34;1m[rows:1][0m SELECT * FROM "likes" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:27 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:27 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.997ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[103.410ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[111.368ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[111.495ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[122.489ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:35:27 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[122.160ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:35:31 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[105.326ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:31 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:65
+[0m[33m[3.758ms] [34;1m[rows:0][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'request'
+
+2023/08/26 15:35:31 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:86
+[0m[33m[108.282ms] [34;1m[rows:7][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62'
+
+2023/08/26 15:35:31 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:98
+[0m[33m[1.231ms] [34;1m[rows:21][0m SELECT * FROM "friends" WHERE user_id IN ('f1c39c73-3d0d-477e-9d3e-440c3c9c5455','e29ea7c3-f1d7-4d5a-ba41-e987e88bff30','53e74b65-1e2e-4978-9258-78e54920d09f','d39b8e72-76c4-4af1-a0b2-c77fd143ee37','9135e56b-a321-4366-8956-036388258842','312fcd9d-c821-46b2-adab-1707e6c77b54','f767afc9-9fd7-4dc1-8452-c0cfe7f16ff0')
+
+2023/08/26 15:35:31 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:112
+[0m[33m[0.215ms] [34;1m[rows:0][0m SELECT * FROM "users" WHERE id IN (NULL)
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[114.204ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/reels.resolvers.go:50
+[0m[33m[111.472ms] [34;1m[rows:3][0m SELECT * FROM "reels"
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[138.576ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[94.847ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:33 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.580ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '5ab1f6b6-3ffe-45c8-b9d2-07bb9f86667e' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:33 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.580ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'd0bbfc65-04a1-4938-8423-fab2c4ac1047' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.616ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '5ab1f6b6-3ffe-45c8-b9d2-07bb9f86667e'
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'c77ff62a-91d5-4848-a05f-4c13257884ee'
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'd0bbfc65-04a1-4938-8423-fab2c4ac1047'
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[1.513ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '5ab1f6b6-3ffe-45c8-b9d2-07bb9f86667e'
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'c77ff62a-91d5-4848-a05f-4c13257884ee'
+
+2023/08/26 15:35:33 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'd0bbfc65-04a1-4938-8423-fab2c4ac1047'
+
+2023/08/26 15:35:33 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[46.556ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'c77ff62a-91d5-4848-a05f-4c13257884ee' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:53 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[100.633ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:53 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[102.766ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:53 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[52.490ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:53 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[114.245ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3 OFFSET 3
+
+2023/08/26 15:35:55 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.510ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'ac25e69e-981b-4f04-9b48-712d3628d763' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:55 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[2.205ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '2e1b1296-ac59-4ade-a607-1a4c01558ba1' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:55 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.510ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '973a7873-96be-4624-896a-d1d768373609' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.509ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'ac25e69e-981b-4f04-9b48-712d3628d763'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.566ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '2e1b1296-ac59-4ade-a607-1a4c01558ba1'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[1.315ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '973a7873-96be-4624-896a-d1d768373609'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.513ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '2e1b1296-ac59-4ade-a607-1a4c01558ba1'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.520ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '973a7873-96be-4624-896a-d1d768373609'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.508ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = 'ac25e69e-981b-4f04-9b48-712d3628d763'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[3.053ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '2e1b1296-ac59-4ade-a607-1a4c01558ba1'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[64.897ms] [34;1m[rows:2][0m SELECT * FROM "media" WHERE post_id = '973a7873-96be-4624-896a-d1d768373609'
+
+2023/08/26 15:35:55 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[109.156ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'ac25e69e-981b-4f04-9b48-712d3628d763'
+
+2023/08/26 15:35:57 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[108.034ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:57 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[115.379ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3 OFFSET 6
+
+2023/08/26 15:35:58 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[106.135ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:58 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[115.133ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:35:58 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[119.849ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[105.751ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[101.213ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[67.289ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.504ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '1fedbf33-892e-42d6-8174-df9dcd1bbad4'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.505ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'a77e052f-b2f7-4355-9c43-78aa93951d0c'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '0abec227-aa37-4669-9765-6e850454ffe6'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.700ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '1fedbf33-892e-42d6-8174-df9dcd1bbad4'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.508ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '0abec227-aa37-4669-9765-6e850454ffe6'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[3.755ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'a77e052f-b2f7-4355-9c43-78aa93951d0c'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.507ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '1fedbf33-892e-42d6-8174-df9dcd1bbad4'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.510ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = 'a77e052f-b2f7-4355-9c43-78aa93951d0c'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '0abec227-aa37-4669-9765-6e850454ffe6'
+
+2023/08/26 15:36:00 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.504ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:00 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[0.571ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'a77e052f-b2f7-4355-9c43-78aa93951d0c' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:36:00 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[2.426ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '1fedbf33-892e-42d6-8174-df9dcd1bbad4' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:36:00 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[50.227ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '0abec227-aa37-4669-9765-6e850454ffe6' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:36:02 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[56.715ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:02 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[54.371ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:02 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[113.877ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:02 [32mD:/Aslab/WEB-KS-231/backend/graph/story.resolvers.go:56
+[0m[33m[116.560ms] [34;1m[rows:0][0m SELECT * FROM "stories" WHERE user_id = '' AND date_story >= '2023-08-25 15:36:02'
+
+2023/08/26 15:36:02 [32mD:/Aslab/WEB-KS-231/backend/graph/story.resolvers.go:72
+[0m[33m[99.888ms] [34;1m[rows:0][0m SELECT user_id, user_name FROM "stories" WHERE date_story >= '2023-08-25 15:36:02' GROUP BY user_id, user_name
+
+2023/08/26 15:36:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[71.339ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[101.802ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[103.550ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:17 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.541ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:19 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[112.719ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3 OFFSET 3
+
+2023/08/26 15:36:38 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:195
+[0m[33m[105.999ms] [34;1m[rows:10][0m SELECT * FROM "users"
+
+2023/08/26 15:36:38 [32mD:/Aslab/WEB-KS-231/backend/graph/group.resolvers.go:48
+[0m[33m[106.721ms] [34;1m[rows:5][0m SELECT * FROM "groups"
+
+2023/08/26 15:36:38 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.514ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:36:38 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[201.335ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[108.809ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:76
+[0m[33m[108.743ms] [34;1m[rows:7][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'approved'
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.900ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'f1c39c73-3d0d-477e-9d3e-440c3c9c5455' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.554ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e29ea7c3-f1d7-4d5a-ba41-e987e88bff30' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[132.945ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3 OFFSET 3
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '53e74b65-1e2e-4978-9258-78e54920d09f' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/reels.resolvers.go:56
+[0m[33m[134.692ms] [34;1m[rows:2][0m SELECT * FROM "reels" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62'
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.510ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'd39b8e72-76c4-4af1-a0b2-c77fd143ee37' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[142.522ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '9135e56b-a321-4366-8956-036388258842' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '312fcd9d-c821-46b2-adab-1707e6c77b54' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:04 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'f767afc9-9fd7-4dc1-8452-c0cfe7f16ff0' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[121.416ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = '' AND status = 'unread'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:86
+[0m[33m[131.045ms] [34;1m[rows:7][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:98
+[0m[33m[10.263ms] [34;1m[rows:21][0m SELECT * FROM "friends" WHERE user_id IN ('f1c39c73-3d0d-477e-9d3e-440c3c9c5455','e29ea7c3-f1d7-4d5a-ba41-e987e88bff30','53e74b65-1e2e-4978-9258-78e54920d09f','d39b8e72-76c4-4af1-a0b2-c77fd143ee37','9135e56b-a321-4366-8956-036388258842','312fcd9d-c821-46b2-adab-1707e6c77b54','f767afc9-9fd7-4dc1-8452-c0cfe7f16ff0')
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:112
+[0m[33m[3.018ms] [34;1m[rows:0][0m SELECT * FROM "users" WHERE id IN (NULL)
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[13.991ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/reels.resolvers.go:56
+[0m[33m[191.158ms] [34;1m[rows:2][0m SELECT * FROM "reels" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[204.816ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[214.108ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/friend.resolvers.go:76
+[0m[33m[223.309ms] [34;1m[rows:7][0m SELECT * FROM "friends" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'approved'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/notification.resolvers.go:49
+[0m[33m[1.015ms] [34;1m[rows:1][0m SELECT count(*) FROM "notifications" WHERE user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' AND status = 'unread'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/post.resolvers.go:83
+[0m[33m[0.000ms] [34;1m[rows:3][0m SELECT * FROM "posts" LIMIT 3
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'f1c39c73-3d0d-477e-9d3e-440c3c9c5455' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74
+[0m[33m[2.137ms] [34;1m[rows:1][0m SELECT * FROM "likes" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:37:06 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[1.631ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[0.506ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[1.509ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.506ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/comment.resolvers.go:45
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT count(*) FROM "comments" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[3.398ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[2.435ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/media.resolvers.go:29
+[0m[33m[0.842ms] [34;1m[rows:1][0m SELECT * FROM "media" WHERE post_id = '45fe1f45-f4de-4071-a7eb-12eb5f8106fc'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.560ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'e29ea7c3-f1d7-4d5a-ba41-e987e88bff30' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '53e74b65-1e2e-4978-9258-78e54920d09f' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'd39b8e72-76c4-4af1-a0b2-c77fd143ee37' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '9135e56b-a321-4366-8956-036388258842' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [31;1mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:74 [35;1mrecord not found
+[0m[33m[59.203ms] [34;1m[rows:0][0m SELECT * FROM "likes" WHERE post_id = 'a8735bbd-8c67-4da1-bde5-8e65b2efb18b' AND user_id = 'e07656bd-f6ee-4a2b-aa17-43e04929da62' ORDER BY "likes"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/like.resolvers.go:59
+[0m[33m[59.552ms] [34;1m[rows:1][0m SELECT count(*) FROM "likes" WHERE post_id = '22064a3a-05b8-410d-b433-c2ace15a70df'
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.000ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = '312fcd9d-c821-46b2-adab-1707e6c77b54' ORDER BY "users"."id" LIMIT 1
+
+2023/08/26 15:37:06 [32mD:/Aslab/WEB-KS-231/backend/graph/user.resolvers.go:171
+[0m[33m[0.870ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE id = 'f767afc9-9fd7-4dc1-8452-c0cfe7f16ff0' ORDER BY "users"."id" LIMIT 1

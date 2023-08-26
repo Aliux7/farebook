@@ -1,0 +1,25 @@
+type ReplayComment {
+  id: ID!
+	commentID: String!
+	userID: String!
+  userName: String!
+  content: String!
+  createDate: String!
+}
+
+input NewReplayComment {
+	commentID: String!
+	userID: String!
+  userName: String!
+  content: String!
+  createDate: String!
+}
+
+extend type Query {
+  getAllReplayCommentByComment(id: ID!): [ReplayComment!]!
+  countAllReplayCommentByComment(id: ID!): Int!
+}
+
+extend type Mutation {
+  createReplayComment(inputReplayComment: NewReplayComment!): ReplayComment!
+}

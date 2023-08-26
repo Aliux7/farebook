@@ -1,0 +1,68 @@
+.postContainer {
+  background-color: var(--header_background);
+  margin: 15px 0;
+  padding: 10px 10px;
+  border-radius: 10px;
+  /* box-shadow: 0 0px 4px rgba(0, 0, 0, 0.35); */
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1),
+              5px 5px 15px rgba(0, 0, 0, 0.35),
+              inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+              inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.postComponent{
+  margin: 15px 20px;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.profileImageContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-info {
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.privacy-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.privacy-text {
+  color: #9fa2a6;
+  margin: 0;
+}
+
+.longText {
+  max-width: 500px;
+}
+
+.longText {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.postFooter {
+  margin: 15px 20px;
+}
